@@ -19,7 +19,7 @@ class PacienteTeste {
      */
     @Before
     public void setUp() throws Exception {
-        this.paciente1 = new Paciente("Tod Guten", "7599534432","Rua do Hittler","12/06/1990");
+        this.paciente1 = new Paciente("Tod Guten", "M", "Rua do Hittler", "7599534432","12/06/1990");
     }
 
 	@Test
@@ -27,16 +27,17 @@ class PacienteTeste {
 		assertEquals("Tod Guten",this.paciente1.getNome());
 		assertEquals("7599534432",this.paciente1.getTelefone());
 		assertEquals("Rua do Hittler, 666",this.paciente1.getEndereco);
+		assertEquals("M",this.paciente1.getGender());
 		assertEquals(Calendar.YEAR-1990, this.paciente1.getIdade());
 	}
 	
 	@Test
 	public void testEquals() {
-		Paciente paciente2 = new Paciente("Irish Abah", "7599534432","Rua do Hittler","12/06/1990");
+		Paciente paciente2 = new Paciente("Karla Péres", "F", "Rua do Hittler", "7599534432","12/06/1990");
 		assertFalse(this.paciente1.equals(paciente2));
-		Paciente paciente3 = new Paciente("Tod Guten","1194663520","Rua do Hittler","12/06/1990");
+		Paciente paciente3 = new Paciente("Tod Guten", "M","Rua do Hittler","1194663520","12/06/1990");
 		assertFalse(this.paciente1.equals(paciente3));
-		Paciente paciente4 = new Paciente("Tod Guten","7599534432","Rua do Hittler","12/06/1990");
+		Paciente paciente4 = new Paciente("Tod Guten", "M","Rua do Hittler","7599534432","12/06/1990");
 		assertTrue(this.paciente1.equals(paciente4));
 	}
 
