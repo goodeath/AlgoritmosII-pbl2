@@ -42,5 +42,34 @@ class LinkedListTeste {
 		assertEquals(3,list.get(2));
 	}
 	
- 
+	@Test
+    public void testRemove(){
+        assertNull(this.list.remove(0));
+        assertNull(this.list.remove(1));
+        
+        this.list.add(10);
+        this.list.add(20);
+        this.list.add(30);
+        
+        assertEquals(20, this.list.remove(1));
+        assertEquals(2, this.list.size());
+
+        assertEquals(30, list.remove(1));
+        assertEquals(1, list.size());
+
+        assertNull(list.remove(1));
+
+        assertEquals(10, list.remove(0));
+        assertEquals(0, list.size());
+        
+    }
+	
+	@Test
+	public void testEmpty() {
+		assertTrue(list.isEmpty());
+		this.list.add(10);
+		assertFalse(list.isEmpty());
+		this.list.remove(0);
+		assertTrue(list.isEmpty());
+	}
 }
