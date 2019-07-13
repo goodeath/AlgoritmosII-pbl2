@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
-import br.uefs.ecomp.delivery.util.IList;
-import br.uefs.ecomp.delivery.util.MyLinkedList;
 import br.uefs.ecomp.isnotpaxbahia.utils.LinkedList;
 
 class LinkedListTeste {
