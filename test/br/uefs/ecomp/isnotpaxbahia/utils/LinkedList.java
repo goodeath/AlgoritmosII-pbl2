@@ -4,20 +4,13 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
-import br.uefs.ecomp.isnotpaxbahia.model.Agendamento;
-import br.uefs.ecomp.isnotpaxbahia.model.Paciente;
-import br.uefs.ecomp.isnotpaxbahia.model.Exame;
-import br.uefs.ecomp.isnotpaxbahia.model.Consulta;
-import br.uefs.ecomp.isnotpaxbahia.model.Lote;
-
+import br.uefs.ecomp.delivery.util.IList;
+import br.uefs.ecomp.delivery.util.MyLinkedList;
+import br.uefs.ecomp.isnotpaxbahia.utils.LinkedList;
 
 class LinkedListTeste {
 	
-	private Paciente paciente1;
-	private Exame proc1;
-	private Consulta proc2;
-	private Lote lote1;
-	private Lote lote2;
+	private LinkedList<int> list;
 	
 	/**
      * Este método é executado antes de cada teste de unidade (testes a seguir), 
@@ -25,47 +18,29 @@ class LinkedListTeste {
      */
     @Before
     public void setUp() throws Exception {
-    	this.paciente1 = new Paciente("Tod Guten", "7599534432");
-    	this.proc1 = new Exame("Endoscopia", "S1", "Dr. Ricardo", "Gertrudes");
-    	this.proc2 = new Consulta("Clinico Geral");
-        this.lote1 = new Lote(proc1, 50);
-    	this.lote2 = new Lote(proc2, 50);
+    	this.list = new MyLinkedList<int>();
     }
 
 	@Test
-	public void testInitialization() {
-		Agendamento agendamento = new Agendamento(this.lote1,this.paciente1);
-		assertEquals(this.lote1.getQuantity(),49);
-		assertEquals(this.lote2.getQuantity(),50);
-		assertTrue(agendamento.getPaciente().equals(this.paciente1));
-		assertTrue(agendamento.getProcedimento().equals(proc1));
-		Agendamento agendamento2 = new Agendamento(this.lote2,this.paciente1);
-		assertEquals(this.lote2.getQuantity(),49);
-		Agendamento agendamento3 = new Agendamento(this.lote2,this.paciente1);
-		assertEquals(this.lote2.getQuantity(),48);
+	public void testAdd() {
+		assertEquals(0,list.size());
+		this.list.add(1);
+		assertEquals(1,list.size());
+		this.list.add(2);
+		assertEquals(2,list.size());
+		this.list.add(3);
+		assertEquals(3,list.size());
 	}
 	
 	@Test
-	public void testEquality() {
-		Agendamento agendamento = new Agendamento(this.lote1,this.paciente1);
-		Agendamento agendamento2 = new Agendamento(this.lote1,this.paciente1);
-		assertTrue(agendamento.equals(agendamento2));
-		Agendamento agendamento3 = new Agendamento(this.lote2,this.paciente1);
-		assertFalse(agendamento.equals(agendamento3));
+	public void testGet() {
+		this.list.add(1);
+		this.list.add(2);
+		this.list.add(3);
+		assertEquals(1,list.get(0));
+		assertEquals(2,list.get(1));
+		assertEquals(3,list.get(2));
 	}
 	
-	@Test
-	public void testDecreaseQuantity() {
-		assertEquals(50,this.lote1.getQuantidade());
-		this.lote1.decrease();
-		assertEquals(49,this.lote1.getQuantidade());
-		this.lote1.decrease();
-		assertEquals(48,this.lote1.getQuantidade());
-		this.lote1.setQuantity(1);
-		this.lote1.decrease();
-		assertEquals(0,this.lote1.getQuantidade());
-		this.lote1.decrease();
-		assertEquals(0,this.lote1.getQuantidade());
-	}
-
+ 
 }
