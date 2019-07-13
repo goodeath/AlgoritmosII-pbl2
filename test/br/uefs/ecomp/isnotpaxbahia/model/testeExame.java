@@ -10,7 +10,7 @@ public class ExameTeste {
 
 	@Before
 	public void setUp throws Exception {
-		this.proc1 = new Procedimento("Endoscopia","S1","Dr. Ricardo","Gertrudes");
+		this.proc1 = new Procedimento("hemograma","S10","Dr. Ricardo","Gertrudes");
 		this.exame1 = new Exame(proc1,50,"nao respirar","esteja hidratado","hemograma");
 	}
 
