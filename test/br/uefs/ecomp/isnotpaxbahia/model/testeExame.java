@@ -41,3 +41,4 @@ public class ExameTeste {
 		assertEquals(0,this.lote1.getQuantidade());
 		assertNull(this.lote1.decrease());
 	}
+}
