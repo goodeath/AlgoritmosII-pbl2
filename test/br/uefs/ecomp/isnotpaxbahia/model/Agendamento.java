@@ -25,7 +25,7 @@ class AgendamentoTeste {
      */
     @Before
     public void setUp() throws Exception {
-    	this.paciente1 = new Paciente("Tod Guten", "7599534432");
+    	this.paciente1 = new Paciente("Tod Guten", "M", "Rua Alciano", "7599534432", "12/06/1989");
     	this.proc1 = new Exame("Endoscopia", "S1", "Dr. Ricardo", "Gertrudes");
     	this.proc2 = new Consulta("Clinico Geral");
         this.lote1 = new Lote(proc1, 50);
