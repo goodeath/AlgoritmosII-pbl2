@@ -62,6 +62,72 @@ class LinkedListTeste {
         
     }
 	
+	 /**
+     * Teste de unidade que verifica se os métodos de inserção e remoção de objetos 
+     * na lista estão funcionando corretamente.
+     */
+    @Test
+    public void testInsertDelete() {
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        assertFalse(list.isEmpty());
+
+        assertEquals(30, list.remove(2));
+        assertFalse(list.isEmpty());
+
+        assertEquals(20, list.remove(1));
+        assertFalse(list.isEmpty());
+
+        assertEquals(10, list.remove(0));
+        assertTrue(list.isEmpty());
+    }
+	
+	 /**
+     * Teste de unidade que verifica o tamanho da lista antes e após inserções 
+     * e remoções.
+     */
+    @Test
+    public void testSize() {
+        assertEquals(0, list.size());
+
+        list.add(10);
+        assertEquals(1, list.size());
+        list.add(20);
+	assertEquals(2, list.size());
+        list.add(30);
+        assertEquals(3, list.size());
+
+        list.remove(0);
+        assertEquals(2, list.size());
+
+        list.remove(0);
+        list.remove(0);
+        assertEquals(0, list.size());
+    }
+	
+	  /**
+     * Teste de unidade que verifica se o método iterator está listando os
+     * objetos corretamente.
+     */
+    @Test
+    public void testIterator() {
+        Iterator it = list.iterator();
+        assertFalse(it.hasNext());
+
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        it = list.iterator();
+        assertTrue(it.hasNext());
+        assertEquals(data1, it.next());
+        assertTrue(it.hasNext());
+        assertEquals(data2, it.next());
+        assertTrue(it.hasNext());
+        assertEquals(data3, it.next());
+        assertFalse(it.hasNext());
+    }
+	
 	@Test
 	public void testEmpty() {
 		assertTrue(list.isEmpty());
@@ -70,4 +136,6 @@ class LinkedListTeste {
 		this.list.remove(0);
 		assertTrue(list.isEmpty());
 	}
+	
+	
 }
