@@ -136,6 +136,33 @@ class LinkedListTeste {
 		this.list.remove(0);
 		assertTrue(list.isEmpty());
 	}
-	
-	
+	/**
+	* Teste de unidade que verifica se a lista está ordenada, conforme as prioridades de modo decrescente
+	*/
+	public void testOrder(){
+		list.add(1);
+		list.add(2);
+		assertEquals(2,list.get(0));
+		assertEquals(2,list.size());
+		list.add(5);
+		assertEquals(3,list.size());
+		assertEquals(5,list.get(0));
+		assertEquals(4,list.size());
+		list.add(5);
+		list.add(3);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		list.add(1);
+		assertEquals(9,list.size());
+		assertEquals(5,list.get(0));
+		assertEquals(5,list.get(1));
+		assertEquals(4,list.get(2));
+		assertEquals(3,list.get(3));
+		assertEquals(3,list.get(4));
+		assertEquals(2,list.get(5));
+		assertEquals(2,list.get(6));
+		assertEquals(1,list.get(7));
+		assertEquals(1,list.get(8));
+	}
 }
