@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import br.uefs.ecomp.isnotpaxbahia.utils.PriorityQueue;
 
 /**
-/* a Data de cada nÛ desta linked list È considerada como a prioridade no problema
+/* a Data de cada n√≥ desta linked list √© considerada como a prioridade no problema
 */
 
 public class QueueTeste {
@@ -21,7 +21,7 @@ public void setUp(){
 }
 
 /**
-/* Testa se o elemento de maior prioridade est· sendo retornado
+/* Testa se o elemento de maior prioridade est√° sendo retornado
 */
 @Test
 public void testMax(){
@@ -63,7 +63,7 @@ public void testisEmpty(){
 }
 
 /**
-/* Este teste verifica se a fila est· obedecendo a ordem de prioridades na hora de remoÁ„o
+/* Este teste verifica se a fila est√° obedecendo a ordem de prioridades na hora de remo√ß√£o
 */
 
 @Test
@@ -71,9 +71,9 @@ public void testRemove(){
 	queue.enqueue(5);
 	queue.enqueue(90);
 	queue.enqueue(39);
-	assertTrue(90,queue.remove());
-	assertTrue(39,queue.remove());
-	assertTrue(5,queue.remove());
+	assertEquals(90,queue.remove());
+	assertEquals(39,queue.remove());
+	assertEquals(5,queue.remove());
 }
 
 
