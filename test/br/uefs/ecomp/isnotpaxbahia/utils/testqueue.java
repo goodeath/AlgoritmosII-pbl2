@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import br.uefs.ecomp.isnotpaxbahia.utils.PriorityQueue;
 
 /**
-/* a Data de cada nó desta linked list é considerada como a prioridade no problema
+* a informação de cada nó desta linked list é considerada como a prioridade no problema
 */
 
 public class QueueTeste {
@@ -17,11 +17,11 @@ public class QueueTeste {
 
 @Before
 public void setUp(){
-	queue = new MyQueue();
+	queue = new MyPriorityQueue();
 }
 
 /**
-/* Testa se o elemento de maior prioridade está sendo retornado
+* Testa se o elemento de maior prioridade está sendo retornado
 */
 @Test
 public void testMax(){
@@ -32,6 +32,9 @@ public void testMax(){
 	assertEquals(30,queue.max());
 }
 
+/**
+* Teste unitário que verifica inserção dos elementos na fila
+*/
 @Test
 public void testEnqueue(){
 	queue.enqueue(10);
@@ -63,7 +66,7 @@ public void testisEmpty(){
 }
 
 /**
-/* Este teste verifica se a fila está obedecendo a ordem de prioridades na hora de remoção
+/* Teste unitário que verifica a remoção dos elementos da fila
 */
 
 @Test
@@ -71,9 +74,20 @@ public void testRemove(){
 	queue.enqueue(5);
 	queue.enqueue(90);
 	queue.enqueue(39);
-	assertEquals(90,queue.remove());
-	assertEquals(39,queue.remove());
-	assertEquals(5,queue.remove());
+	
+	assertEquals(3,queue.size())
+	assertEquals(5,queue.first());
+	queue.dequeue();
+	
+	assertEquals(2,queue.size());
+	assertEquals(90,queue.first());
+	queue.dequeue();
+	
+	assertEquals(39,queue.first());
+	assertEquals(1,queue.first());
+	queue.dequeue();
+	assertEquals(0,queue.size());
+	assertNull(queue.dequeue());
 }
 
 
