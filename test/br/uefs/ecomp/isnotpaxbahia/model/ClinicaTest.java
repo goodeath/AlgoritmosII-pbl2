@@ -33,7 +33,7 @@ public class TestClinica{
 
     
     /**
-     * Teste de unidade que verifica a inserção de pacientes no cadastro da clínica.
+     * Teste de unidade que verifica a inserÃ§Ã£o de pacientes no cadastro da clÃ­nica.
      */
     @Test
     public void testAddCliente() {
@@ -49,7 +49,7 @@ public class TestClinica{
     }
 
     /**
-     * Teste de unidade que verifica verifica se é possível buscar pacientes
+     * Teste de unidade que verifica verifica se Ã© possÃ­vel buscar pacientes
      */
     @Test
     public void testSearchClientes(){
@@ -78,7 +78,8 @@ public class TestClinica{
         assertTrue(it.hasNext());
         assertEquals(c1, it.next());
         assertFalse(it.hasNext());
-
+		     
+//DESCONSIDERE TUDO ABAIXO DESTA LINHA		     
         it = sys.getPacientes().searchPacientebyPhone("000-9090-0000");
         assertTrue(it.hasNext());
         assertEquals(c1, it.next());
