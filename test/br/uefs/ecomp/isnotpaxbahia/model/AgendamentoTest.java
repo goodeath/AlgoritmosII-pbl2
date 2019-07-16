@@ -54,18 +54,4 @@ class AgendamentoTeste {
 		assertFalse(agendamento.equals(agendamento3));
 	}
 	
-	@Test
-	public void testDecreaseQuantity() {
-		assertEquals(50,this.lote1.getQuantidade());
-		this.lote1.decrease();
-		assertEquals(49,this.lote1.getQuantidade());
-		this.lote1.decrease();
-		assertEquals(48,this.lote1.getQuantidade());
-		this.lote1.setQuantity(1);
-		this.lote1.decrease();
-		assertEquals(0,this.lote1.getQuantidade());
-		this.lote1.decrease();
-		assertEquals(0,this.lote1.getQuantidade());
-	}
-
 }
