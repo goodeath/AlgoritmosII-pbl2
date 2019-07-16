@@ -55,7 +55,7 @@ public void insertP5(){
 	queue.enqueue(a3);
 	assertEquals(a3,queue.max());
 	queue.enqueue_p5();
-	assertEquals(5,queue.max());
+	assertEquals(,queue.max());
 	assertEquals(5,queue.first());
 	queue.enqueue(3);
 	queue.enqueue_p5(5);
