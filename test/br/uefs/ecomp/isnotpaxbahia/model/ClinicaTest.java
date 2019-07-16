@@ -122,11 +122,11 @@ public class TestClinica{
 
 // Considerando que todos agendaram para mesmo dia, a ordem de insercao na fila de presenca eh: p3 - p2 - p1
 	
-	Paciente px = cli.getPacientes().getPriority();
-	cli.getPresenca().enqueue(cli.getPacientes.getPriority());
-	px = cli.getPacientes().getPriority();
+	Paciente px = cli.getPacientes().getMaxPriority();
+	cli.getPresenca().enqueue(cli.getPacientes.getMaxPriority());
+	px = cli.getPacientes().getMaxPriority();
 	cli.getPresenca().enqueue(px);
-	px = cli.getPacientes().getPriority();
+	px = cli.getPacientes().getMaxPriority();
 	assertEquals(p3,cli.getPresenca().first());
 	cli.getPresenca().dequeue();
 	assertEquals(p2,cli.getPresenca().first());
