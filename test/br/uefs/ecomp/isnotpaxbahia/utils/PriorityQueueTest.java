@@ -33,17 +33,38 @@ public void testMax(){
 }
 
 /**
+*  Teste que verifica se os pacientes de prioridade 5 estão sendo inseridos no começo
+*/
+@Test
+public void insertP5(){
+	queue.enqueue(1);
+	queue.enqueue(2);
+	queue.enqueue(2);
+	queue.enqueue(3);
+	assertEquals(3,queue.max());
+	queue.enqueue_p5(5);
+	assertEquals(5,queue.max());
+	assertEquals(5,queue.first());
+	queue.enqueue(3);
+	queue.enqueue_p5(5);
+	assertEquals(5,queue.first());
+	queue.dequeue();
+	assertEquals(5,queue.first());
+}
+	
+	
+/**
 * Teste unitário que verifica inserção dos elementos na fila
 */
 @Test
 public void testEnqueue(){
-	queue.enqueue(10);
-	assertEquals(10, queue.peek());
-	assertEquals(10, queue.max());    //max retorna elemento de maior prioridade
-	queue.enqueue(99);
-	assertEquals(99, queue.max());
-	queue.enqueue(23);
-	assertEquals(99, queue.max());
+	queue.enqueue(1);
+	assertEquals(1, queue.peek());
+	assertEquals(1, queue.max());    //max retorna elemento de maior prioridade
+	queue.enqueue(9);
+	assertEquals(9, queue.max());
+	queue.enqueue(2);
+	assertEquals(9, queue.max());
 }
 
 @Test
@@ -89,6 +110,5 @@ public void testRemove(){
 	assertEquals(0,queue.size());
 	assertNull(queue.dequeue());
 }
-
 
 }
