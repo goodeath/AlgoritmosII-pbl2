@@ -20,36 +20,46 @@ class LoteTeste {
      */
     @Before
     public void setUp() throws Exception {
-    	this.proc1 = new Exame("Endoscopia", "S1", "Dr. Ricardo", "Gertrudes");
-    	this.proc2 = new Consulta("Clinico Geral")
-        this.lote1 = new Lote(proc1, 50);
+    	proc1 = new Exame("Retossigmoidoscopia","T4", "Dra. Maria", "Gertrudes", "Uma boa noite de sono", "Jejum por 12 horas");
+    	proc2 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
+        lote1 = new Lote(proc1, 50);
+        lote2 = new Lote(proc2, 50);
+        lote3 = new Lote(proc1, 30);
     }
 
 	@Test
 	public void testInitialization() {
-		assertEquals(50,this.lote1.getQuantidade());
-		assertTrue(this.proc1.equals(this.lote1.getProcedimento()));
+		assertEquals(50,lote1.getQuantidade());
+		assertEquals(proc1.equals(lote1.getProcedimento()));
+		assertEquals(50,lote2.getQuantidade());
+		assertEquals(proc2.equals(lote2.getProcedimento()));
 	}
 	
 	@test
 	public void testSetQuantity() {
-		assertEquals(50,this.lote1.getQuantidade());
-		this.lote1.setQuantity(10);
-		assertEquals(10,this.lote1.getQuantidade());
+		assertEquals(50,lote1.getQuantidade());
+		lote1.setQuantidade(10);
+		assertEquals(10,lote1.getQuantidade());
 	}
 	
 	@Test
 	public void testDecreaseQuantity() {
-		assertEquals(50,this.lote1.getQuantidade());
-		this.lote1.decrease();
-		assertEquals(49,this.lote1.getQuantidade());
-		this.lote1.decrease();
-		assertEquals(48,this.lote1.getQuantidade());
-		this.lote1.setQuantity(1);
-		this.lote1.decrease();
-		assertEquals(0,this.lote1.getQuantidade());
-		this.lote1.decrease();
-		assertEquals(0,this.lote1.getQuantidade());
+		assertEquals(50,lote1.getQuantidade());
+		lote1.diminuir();
+		assertEquals(49,lote1.getQuantidade());
+		lote1.diminuir();
+		assertEquals(48,lote1.getQuantidade());
+		lote1.setQuantidade(1);
+		lote1.diminuir();
+		assertEquals(0,lote1.getQuantidade());
+		lote1.diminuir();
+		assertEquals(0,lote1.getQuantidade());
+	}
+	
+	@Test
+	public void testEquality(){
+		assertFalse(lote1.equals(lote2));
+		assertTrue(lote1.equals(lote3));
 	}
 
 }
