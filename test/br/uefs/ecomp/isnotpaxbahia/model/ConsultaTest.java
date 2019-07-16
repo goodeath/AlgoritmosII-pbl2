@@ -8,39 +8,31 @@ import org.junit.jupiter.api.Test;
 class ConsultaTeste {
 	
 	private Consulta consulta1;
-	
+	private Consulta consulta2;
+	private Consulta consulta3;	
 	/**
      * Este mÃ©todo Ã© executado antes de cada teste de unidade (testes a seguir), 
      * e serve para inicializar objetos que sÃ£o utilizados nos testes.
      */
     @Before
     public void setUp() throws Exception {
-
-    	this.proc1 = new Procedimento("hemograma","S10","Dr. Ricardo","Gertrudes");
-        this.consulta1 = new Consulta(proc1, 50,"Pediatra");
+        consulta1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
+        consulta2 = new Consulta("Dentista", "S1", "Dr. Maria", "Gertrudes");
+        consulta3 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
     }
 
 	@Test
 	public void testInitialization() {
-		assertEquals(50,this.lote1.getQuantidade());
-		assertEquals("Pediatra",this.getEspecialidade());
+		assertEquals(this.consulta1.getNome(),"Clinico Geral");
+		assertEquals(this.consulta1.getMedico(),"Dr. Ricardo");
+		assertEquals(this.consulta1.getAtendente(),"Gertrudes");
+		assertEquals(this.consulta1.getSala(),"S1");
 	}
 
 	@Test
-	public void testSetQuantity() {
-		assertEquals(50,this.lote1.getQuantidade());
-		this.lote1.setQuantity(10);
-		assertEquals(10,this.lote1.getQuantidade());
+	public void testEquality() {
+		assertFalse(consulta1.equals(consulta2));
+		assertTrue(consulta1.equals(consulta3));
 	}
 
-	@Test
-	public void testDecreaseQuantity() {
-		assertEquals(50,this.lote1.getQuantidade());
-		this.lote1.decrease();
-		assertFalse(48,this.lote1.getQuantidade());
-		assertEquals(49,this.lote1.getQuantidade());
-		this.lote1.decrease();
-		assertEquals(48,this.lote1.getQuantidade());
-		assertEquals(0,this.lote1.getQuantidade());
-		assertNull(this.lote1.decrease());
 }
