@@ -139,7 +139,7 @@ class LinkedListTeste {
 	/**
 	* Teste de unidade que verifica se a lista está ordenada, conforme as prioridades de modo decrescente
 	*/
-	public void testOrder(){
+/*	public void testOrder(){
 		list.add(1);
 		list.add(2);
 		assertEquals(2,list.get(0));
@@ -164,5 +164,5 @@ class LinkedListTeste {
 		assertEquals(2,list.get(6));
 		assertEquals(1,list.get(7));
 		assertEquals(1,list.get(8));
-	}
+	}   */
 }
