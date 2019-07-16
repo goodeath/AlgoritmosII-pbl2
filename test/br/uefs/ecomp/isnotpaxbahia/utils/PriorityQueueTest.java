@@ -28,8 +28,18 @@ public void setUp(){
 	Agendamento a2 = new Agendamento(Lote l2,Paciente p2);
 	
 	Lote l3 = new Lote(50,"raiox");
-	Paciente p3 = new Paciente("josefa","F","Avenida alvorada","7699990002","01/10/1993");
+	Paciente p3 = new Paciente("josefa","F","Avenida alvorada","7699990002","01/10/1987");
 	Agendamento a3 = new Agendamento(Lote l3,Paciente p3);
+	
+	Lote l4 = new Lote(50,"ressonancia magnetica");
+	Paciente p4 = new Paciente("josefa","F","Avenida afonso pena","7699990003","04/04/1977");
+	Agendamento a4 = new Agendamento(Lote l4,Paciente p4);
+	
+	Lote l5 = new Lote(50,"ultrassom");
+	Paciente p5 = new Paciente("josefa","F","Avenida papagaio","7699990004","04/04/1987");
+	Agendamento a5= new Agendamento(Lote l5,Paciente p5);
+	
+	
 }
 
 /**
@@ -70,31 +80,49 @@ public void insertP5(){
 */
 @Test
 public void testEnqueue(){
-	queue.enqueue(1);
-	assertEquals(1, queue.peek());
-	assertEquals(1, queue.max());    //max retorna elemento de maior prioridade
-	queue.enqueue(9);
-	assertEquals(9, queue.max());
-	queue.enqueue(2);
-	assertEquals(9, queue.max());
+	queue.enqueue(a1);
+	assertEquals(a1, queue.peek());
+	assertEquals(a1, queue.max());    //max retorna elemento de maior prioridade
+	queue.enqueue(a2);
+	assertEquals(a2, queue.max());
+	queue.enqueue(a3);
+	assertEquals(a2, queue.max());
+}
+	
+/**
+*Testa insercao de dois elementos, sendo o segundo de maior prioridade, portanto o primeiro a ser removido
+*/
+@Test
+public void testinsert2_removemaiorprioridade(){
+	queue.enqueue(a1);
+	queue.enqueue(a2);
+	assertEquals(a2,queue.first());
+	assertEquals(a2,queue.dequeue());
+}
+	
+@Test
+public void testinsert3_RemoveMaiorPrioridade(){
+	queue.enqueue(a1);
+	queue.enqueue(a3);
+	queue.enqueue(a2);
+	
 }
 
 @Test
 public void testisEmpty(){
 	assertTrue(queue.isEmpty());
-	queue.enqueue(20);
+	queue.enqueue(a1);
 	assertFalse(queue.isEmpty());
 	queue.dequeue();
 	assertTrue(queue.isEmpty());
-	queue.enqueue(20);
-	queue.enqueue(30);
-	queue.enqueue(10);
+	queue.enqueue(a2);
+	queue.enqueue(a3);
 	assertFalse(queue.isEmpty());
 	queue.dequeue();
 	assertFalse(queue.isEmpty());
 	queue.dequeue();
 	assertFalse(queue.isEmpty());
-	queue.dequeu();
+	queue.dequeue();
 	assertTrue(queue.isEmpty());
 }
 
@@ -104,20 +132,20 @@ public void testisEmpty(){
 
 @Test
 public void testRemove(){
-	queue.enqueue(5);
-	queue.enqueue(90);
-	queue.enqueue(39);
+	queue.enqueue(a1);
+	queue.enqueue(a2);
+	queue.enqueue(a3);
 	
 	assertEquals(3,queue.size())
-	assertEquals(5,queue.first());
+	assertEquals(a2,queue.first());
 	queue.dequeue();
 	
 	assertEquals(2,queue.size());
-	assertEquals(90,queue.first());
-	queue.dequeue();
+	assertEquals(a3,queue.first());
+	queue.dequeue();			//remove o a2, apesar de nao ser o primeiro
 	
-	assertEquals(39,queue.first());
-	assertEquals(1,queue.first());
+	assertEquals(1,queue.size());
+	assertEquals(a1,queue.first());
 	queue.dequeue();
 	assertEquals(0,queue.size());
 	assertNull(queue.dequeue());
