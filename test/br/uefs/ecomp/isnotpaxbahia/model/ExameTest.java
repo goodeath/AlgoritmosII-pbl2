@@ -6,39 +6,37 @@ import org.junit.jupiter.api.Test;
 
 public class ExameTeste {
 
-	private Exame exame1;
+	private Exame exame1, exame2, exame3, exame4;
 
 	@Before
-	public void setUp throws Exception {
-		this.proc1 = new Procedimento("hemograma","S10","Dr. Ricardo","Gertrudes");
-		this.exame1 = new Exame(proc1,50,"nao respirar","esteja hidratado","hemograma");
+	public void setUp throws Exception {		
+		exame1 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes");
+		exame2 = new Exame("Glicorraquia", "T3", "Dra. Maria", "Gertrudes");
+		exame3 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes");
+		exame4 = new Exame("Retossigmoidoscopia","T4", "Dra. Maria", "Gertrudes", "Uma boa noite de sono", "Jejum por 12 horas");
 	}
 
 	@Test
 	public void testInitialization(){
-		assertEquals(50,this.lote1.getQuantidade());
-		assertEquals("hemograma",this.getTipo());
-		assertEquals("nao respirar",this.getRecomendacao());
-		assertFalse("nao comer",this.getRecomendacao());
-		assertEquals("esteja hidratado",this.getRestricao());
+		assertEquals("Jejum por 12 horas",exame4.getRestricao());
+		assertEquals("Uma boa noite de sono",exame4.getRecomendacao());
+		assertEquals("Retossigmoidoscopia",exame4.getNome());
+		assertTrue("T4",exame4.getSala());
+		assertTrue("Dra. Maria", exame4.getMedico());
+		assertTrue("Gertrudes", exame4.getAtendente());
+		
+		assertEquals("Biópsia",exame3.getNome());
+		assertTrue("S1",exame3.getSala());		
+		assertTrue("Dr. Ricardo", exame3.getMedico());
+		assertTrue("Gertrudes", exame3.getAtendente());
+		
+		
 	}
 
-	@Test
-	public void testSetQuantity() {
-		assertEquals(50,this.lote1.getQuantidade());
-		this.lote1.setQuantity(10);
-		assertEquals(10,this.lote1.getQuantidade());
-	}
 
 	@Test
-	public void testDecreaseQuantity() {
-		assertEquals(50,this.lote1.getQuantidade());
-		this.lote1.decrease();
-		assertFalse(48,this.lote1.getQuantidade());
-		assertEquals(49,this.lote1.getQuantidade());
-		this.lote1.decrease();
-		assertEquals(48,this.lote1.getQuantidade());
-		assertEquals(0,this.lote1.getQuantidade());
-		assertNull(this.lote1.decrease());
+	public void testEquality(){
+		assertFalse(exame1.equals(exame2));
+		assertTrue(exame1.equals(exame3));
 	}
 }
