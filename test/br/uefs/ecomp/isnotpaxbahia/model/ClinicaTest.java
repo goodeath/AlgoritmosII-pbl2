@@ -22,13 +22,33 @@ public class TestClinica{
 	
 	@Before
 	public void setUp() throws Exception {
+	
 	cli = new Clinica();
 	
 	p1 = new Paciente("Ronaldinho", "M", "Rua Barcelona", "8390102002", "01/02/1987");
 	p2 = new Paciente("Tod Guten", "M","Rua do Hittler","1194663520","12/06/1990");
 	p3 = new Paciente("Karla Perez" , "F", "Avenida do Alfabeto","7191234567", "03/03/1977");
+	
+	a1 = new Agendamento();		
+	a2 = new Agendamento();
+	a3 = new Agendamento();
 
-	c1 = new Consulta();
+	proc1 = new Procedimento("hemograma","S10","Dr. Moab","Karla");
+	proc2 = new Procedimento("ressonancia magnetica","S1","Dr. Ricardo","Mario");
+	proc3 = new Procedimento("Consulta","S9","Dr. Jose","Josefa");
+	
+	lote1 = new Lote(proc1,30);
+	lote2 = new Lote(proc2,30);
+	lote3 = new Lote(proc3,30);
+
+	c1 = new Consulta(proc1,30,"Pediatra");
+        c2 = new Consulta(proc1,29,"Pediatra");
+	c3 = new Consulta(proc3,30,"Gastroenterologista");
+	e1 = new Exame(proc1,28,"estar em jejum","se hidratar","hemograma");
+	e2 = new Exame(proc1,27,"estar em jejum","se hidratar","hemograma");
+	e3 = new Exame(proc2,30,"estar em jejum de 12h","se hidratar","ressonancia magnetica");
+
+	
 	}
 
     
@@ -42,9 +62,9 @@ public class TestClinica{
         cli.getPacientes().add(p3);
         assertEquals(sys.getPacientes().size(),3);
         
-        assertEquals(p1, sys.getPacientes().get(0));
-        assertEquals(p2, sys.getPacientes().get(1));
-        assertEquals(p3, sys.getPacientes().get(2));
+        assertEquals(p1, cli.getPacientes().get(0));
+        assertEquals(p2, cli.getPacientes().get(1));
+        assertEquals(p3, cli.getPacientes().get(2));
 
     }
 
@@ -52,20 +72,18 @@ public class TestClinica{
      * Teste de unidade que verifica verifica se é possível buscar pacientes
      */
     @Test
-    public void testSearchClientes(){
-        sys.getPacientes().add(c1);	//c1=ronaldinho = new Paciente("Ronaldinho", "M", "Rua Barcelona", "8390102002", "01/02/1987");
-        sys.getPacientes().add(c2);	//c2=tod guten = new Paciente("Tod Guten", "M","Rua do Hittler","1194663520","12/06/1990");
-        sys.getPacientes().add(c3);	//c3=Karla perez = new Paciente("Karla Perez" , "F", "Avenida do Alfabeto","7191234567", "03/03/1977");
+    public void testSearchPacientes(){
+        cli.getPacientes().add(p1);	
+        cli.getPacientes().add(p2);	
+        cli.getPacientes().add(p3);	
 
 	Paciente p_nome = cli.getPacientes().searchPacientebyName("Tod");        
-	//assertTrue(cli.getPacientes().get(0),false);
 	assertEquals(p_nome,cli.getPacientes().get(1);
-	//assertTrue(cli.getPacientes(2),false);
+	
 
 	Paciente p_sexo = cli.getPacientes().searchPacientesbySex("M");
 	assertEquals(p_sexo,cli.getPacientes.get(0));
 	assertEquals(p_sexo,cli.getPacientes.get(1));
-	//assertEquals(cli.getPacientes.get(2),false);	
 	
 	Paciente p_endereco = cli.getPacientes().searchPacientesbyAddress("Rua");
 	assertEquals(p_endereco,cli.getPacientes.get(0));
@@ -74,35 +92,9 @@ public class TestClinica{
 	Paciente p_telefone = cli.getPacientes().searchPacientesbyPhone("71");
 	assertEquals(p_telefone,cli.getPacientes.get(2));	
 
-	Iterator it = sys.getPacientes().searchPacientebyName("Fulano");
-        assertTrue(it.hasNext());
-        assertEquals(c1, it.next());
-        assertFalse(it.hasNext());
-		     
-//DESCONSIDERE TUDO ABAIXO DESTA LINHA		     
-        it = sys.getPacientes().searchPacientebyPhone("000-9090-0000");
-        assertTrue(it.hasNext());
-        assertEquals(c1, it.next());
-        assertFalse(it.hasNext());
-
-        it = sys.getPacientes().searchPacientebyName("l");
-        assertTrue(it.hasNext());
-        assertEquals(c1, it.next());
-
-        assertTrue(it.hasNext());
-        assertEquals(c2, it.next());
-
-        assertFalse(it.hasNext());
-        assertNull(it.next());
-
-        it = sys.getPacientes().searchPacientebyPhone("000-9080-0000");
-        assertTrue(it.hasNext());
-        assertEquals(c2, it.next());
-        assertTrue(it.hasNext());
-        assertEquals(c3, it.next());
-
-        assertFalse(it.hasNext());
-        assertNull(it.next());
+	Paciente p_idade = cli.getPacientes().searchPacientesbyIdade("29");
+	assertEquals(p_telefone,cli.getPacientes.get(2));
 
     }
+
 }
