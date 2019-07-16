@@ -22,12 +22,13 @@ public class TestClinica{
 	
 	@Before
 	public void setUp() throws Exception {
-	
 	cli = new Clinica();
 	
+	
+	
 	p1 = new Paciente("Ronaldinho", "M", "Rua Barcelona", "8390102002", "01/02/1987");
-	p2 = new Paciente("Tod Guten", "M","Rua do Hittler","1194663520","12/06/1990");
-	p3 = new Paciente("Karla Perez" , "F", "Avenida do Alfabeto","7191234567", "03/03/1977");
+	p2 = new Paciente("Tod Guten", "M","Rua do Hittler","1194663520","12/06/1949");
+	p3 = new Paciente("Karla Perez" , "F", "Avenida do Alfabeto","7191234567", "03/03/1917");
 	
 	a1 = new Agendamento();		
 	a2 = new Agendamento();
@@ -60,7 +61,7 @@ public class TestClinica{
         cli.getPacientes().add(p1);
         cli.getPacientes().add(p2);
         cli.getPacientes().add(p3);
-        assertEquals(cli.getPacientes().size(),3);
+        assertEquals(sys.getPacientes().size(),3);
         
         assertEquals(p1, cli.getPacientes().get(0));
         assertEquals(p2, cli.getPacientes().get(1));
@@ -95,6 +96,42 @@ public class TestClinica{
 	Paciente p_idade = cli.getPacientes().searchPacientesbyIdade("29");
 	assertEquals(p_telefone,cli.getPacientes.get(2));
 
+    }
+    
+    /**
+    * Teste que verifica se o método que busca pelo elemento de maior prioridade está funcionando corretamente    
+    */
+    @Test
+    public void testSearchPriority(){
+	cli.getPacientes().add(p1);
+	cli.getPacientes().add(p2);
+	assertEquals(p2,cli.getPacientes().getMaxPriority());
+	cli.getPacientes().add(p3);
+	assertEquals(p3,cli.getPacientes().getMaxPriority());
+   }
+
+    /**
+    * Verifica se os pacientes estao sendo inseridos na ordem correta na fila de presenca
+    */
+    @Test
+    public void testEnqueuePresenca{
+        
+	cli.getPacientes().add(p1);
+	cli.getPacientes().add(p2);
+	cli.getPacientes().add(p3);
+
+// Considerando que todos agendaram para mesmo dia, a ordem de insercao na fila de presenca eh: p3 - p2 - p1
+	
+	Paciente px = cli.getPacientes().getPriority();
+	cli.getPresenca().enqueue(cli.getPacientes.getPriority());
+	px = cli.getPacientes().getPriority();
+	cli.getPresenca().enqueue(px);
+	px = cli.getPacientes().getPriority();
+	assertEquals(p3,cli.getPresenca().first());
+	cli.getPresenca().dequeue();
+	assertEquals(p2,cli.getPresenca().first());
+	cli.getPresenca().dequeue();
+	assertEquals(p1,cli.getPresenca().first());
     }
 
 }
