@@ -60,7 +60,7 @@ public class TestClinica{
         cli.getPacientes().add(p1);
         cli.getPacientes().add(p2);
         cli.getPacientes().add(p3);
-        assertEquals(sys.getPacientes().size(),3);
+        assertEquals(cli.getPacientes().size(),3);
         
         assertEquals(p1, cli.getPacientes().get(0));
         assertEquals(p2, cli.getPacientes().get(1));
