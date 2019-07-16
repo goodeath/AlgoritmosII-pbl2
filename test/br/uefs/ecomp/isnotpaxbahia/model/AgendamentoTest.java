@@ -67,5 +67,11 @@ class AgendamentoTeste {
 		this.lote1.decrease();
 		assertEquals(0,this.lote1.getQuantidade());
 	}
+	
+	@Test
+	public void testSetPriority() {
+		Agendamento agendamento1 = new Agendamento(this.lote1,this.paciente1);
+		assertEquals(agendamento1.getPrioridade(),1);
+	}
 
 }
