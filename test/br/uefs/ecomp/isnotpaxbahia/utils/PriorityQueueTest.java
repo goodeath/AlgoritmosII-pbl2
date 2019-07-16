@@ -14,7 +14,7 @@ import br.uefs.ecomp.isnotpaxbahia.utils.IPrioridade;
 * a informação de cada nó desta linked list é considerada como a prioridade no problema
 */
 
-public class QueueTeste {
+public class QueueTest {
 
 	private PriorityQueue <IPrioridade> queue;	
 	private Lote l1, l2, l3, l4, l5;
@@ -97,6 +97,8 @@ public void testAdd(){
 */
 @Test
 public void testRemove(){
+	assertNull(queue.dequeue(0));
+	
 	queue.enqueue(a1);
 	queue.enqueue(a2);
 	queue.enqueue(a3);
@@ -122,7 +124,7 @@ public void testIsEmpty(){
 	assertTrue(queue.isEmpty());
 	queue.enqueue(a1);
 	assertFalse(queue.isEmpty());
-	queue.dequeue();
+	queue.remove(0);
 	assertTrue(queue.isEmpty());
 	queue.enqueue(a2);
 	queue.enqueue(a3);

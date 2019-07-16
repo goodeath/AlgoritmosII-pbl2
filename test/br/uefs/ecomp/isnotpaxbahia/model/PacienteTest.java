@@ -9,7 +9,7 @@ import br.uefs.ecomp.isnotpaxbahia.model.Paciente;
 import java.util.Calendar;
 import java.util.Date;
 
-class PacienteTeste {
+class PacienteTest {
 	
 	private Paciente paciente1;
 	

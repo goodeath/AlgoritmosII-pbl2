@@ -8,7 +8,7 @@ import br.uefs.ecomp.isnotpaxbahia.model.Exame;
 import br.uefs.ecomp.isnotpaxbahia.model.Consulta;
 import br.uefs.ecomp.isnotpaxbahia.model.Lote;
 
-class LoteTeste {
+class LoteTest {
 	
 	private Lote lote1;
 	private Procedimento proc1;

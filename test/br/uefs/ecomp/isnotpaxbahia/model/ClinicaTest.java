@@ -17,7 +17,7 @@ import java.util.Date;
 
 
 
-public class TestClinica{
+public class ClinicaTest{
 
 	
 	@Before

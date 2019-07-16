@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
-public class ExameTeste {
+public class ExameTest {
 
 	private Exame exame1, exame2, exame3, exame4;
 

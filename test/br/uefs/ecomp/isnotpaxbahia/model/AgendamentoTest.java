@@ -11,7 +11,7 @@ import br.uefs.ecomp.isnotpaxbahia.model.Consulta;
 import br.uefs.ecomp.isnotpaxbahia.model.Lote;
 
 
-class AgendamentoTeste {
+class AgendamentoTest {
 	
 	private Paciente paciente1;
 	private Exame proc1;

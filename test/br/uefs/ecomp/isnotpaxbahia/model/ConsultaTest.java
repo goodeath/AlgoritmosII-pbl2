@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 
-class ConsultaTeste {
+class ConsultaTest {
 	
 	private Consulta consulta1;
 	private Consulta consulta2;
