@@ -12,12 +12,24 @@ import br.uefs.ecomp.isnotpaxbahia.utils.PriorityQueue;
 
 public class QueueTeste {
 
-	private PriorityQueue<int> queue;
+	private PriorityQueue <Agendamento> queue;	
 
 
 @Before
 public void setUp(){
-	queue = new MyPriorityQueue();
+	queue = new MyPriorityQueue<Agendamento>();
+	
+	Lote l1 = new Lote(50,"hemograma");
+	Paciente p1 = new Paciente("marcio","M","Rua alvorada","7699990000","01/10/1990");
+	Agendamento a1 = new Agendamento(Lote l1,Paciente p1);
+	
+	Lote l2 = new Lote(50,"consulta geral");
+	Paciente p2 = new Paciente("jose","M","Rua alvorada","7699990001","01/10/1910");
+	Agendamento a2 = new Agendamento(Lote l2,Paciente p2);
+	
+	Lote l3 = new Lote(50,"raiox");
+	Paciente p3 = new Paciente("josefa","F","Avenida alvorada","7699990002","01/10/1993");
+	Agendamento a3 = new Agendamento(Lote l3,Paciente p3);
 }
 
 /**
@@ -25,11 +37,11 @@ public void setUp(){
 */
 @Test
 public void testMax(){
-	queue.enqueue(10);
-	queue.enqueue(20);
-	assertEquals(20,queue.max());
-	queue.enqueue(30);
-	assertEquals(30,queue.max());
+	queue.enqueue(a1);
+	queue.enqueue(a2);
+	assertEquals(a2,queue.max());
+	queue.enqueue(a3);
+	assertEquals(a3,queue.max());
 }
 
 /**
@@ -37,12 +49,12 @@ public void testMax(){
 */
 @Test
 public void insertP5(){
-	queue.enqueue(1);
-	queue.enqueue(2);
-	queue.enqueue(2);
-	queue.enqueue(3);
-	assertEquals(3,queue.max());
-	queue.enqueue_p5(5);
+	queue.enqueue(a1);
+	queue.enqueue(a2);
+	queue.enqueue(a2);
+	queue.enqueue(a3);
+	assertEquals(a3,queue.max());
+	queue.enqueue_p5();
 	assertEquals(5,queue.max());
 	assertEquals(5,queue.first());
 	queue.enqueue(3);
