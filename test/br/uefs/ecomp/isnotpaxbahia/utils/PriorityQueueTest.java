@@ -105,7 +105,8 @@ public void testinsert3_RemoveMaiorPrioridade(){
 	queue.enqueue(a1);
 	queue.enqueue(a3);
 	queue.enqueue(a2);
-	
+	assertEquals(a2,queue.first());
+	assertEquals(a2,queue.dequeue());
 }
 
 @Test
