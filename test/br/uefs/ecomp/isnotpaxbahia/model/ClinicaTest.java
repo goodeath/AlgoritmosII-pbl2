@@ -11,6 +11,7 @@ import br.uefs.ecomp.isnotpaxbahia.model.Exame;
 import br.uefs.ecomp.isnotpaxbahia.model.Consulta;
 import br.uefs.ecomp.isnotpaxbahia.util.LinkedList;
 import br.uefs.ecomp.isnotpaxbahia.util.PriorityQueue;
+import br.uefs.ecomp.isnotpaxbahia.utils.IPrioridade;
 
 import java.util.Calendar;
 import java.util.Date; 
@@ -19,29 +20,37 @@ import java.util.Date;
 
 public class ClinicaTest{
 
+	private Paciente p1, p2, p3;
+	private Agendamento a1, a2, a3;
+	private Lote lote1, lote2, lote3;
+	private Consulta c1, c2, c3;
+	private Exame e1, e2, e3;
 	
 	@Before
 	public void setUp() throws Exception {
-	cli = new Clinica();
-	
-	p1 = new Paciente("Ronaldinho", "M", "Rua Barcelona", "8390102002", "01/02/1987");
-	p2 = new Paciente("Tod Guten", "M","Rua do Hittler","1194663520","12/06/1949");
-	p3 = new Paciente("Karla Perez" , "F", "Avenida do Alfabeto","7191234567", "03/03/1917");
-	
-	a1 = new Agendamento();		
-	a2 = new Agendamento();
-	a3 = new Agendamento();
-	
-	lote1 = new Lote(proc1,30);
-	lote2 = new Lote(proc2,30);
-	lote3 = new Lote(proc3,30);
-
-	c1 = new Consulta(proc1,30,"Pediatra");
+		clinica = new Clinica();
+		
+		p1 = new Paciente("Ronaldinho", "M", "Rua Barcelona", "8390102002", "01/02/1987");
+		p2 = new Paciente("Tod Guten", "M","Rua do Hittler","1194663520","12/06/1949");
+		p3 = new Paciente("Karla Perez" , "F", "Avenida do Alfabeto","7191234567", "03/03/1917");
+		
+		c1 = new Consulta(proc1,30,"Pediatra");
         c2 = new Consulta(proc1,29,"Pediatra");
-	c3 = new Consulta(proc3,30,"Gastroenterologista");
-	e1 = new Exame(proc1,28,"estar em jejum","se hidratar","hemograma");
-	e2 = new Exame(proc1,27,"estar em jejum","se hidratar","hemograma");
-	e3 = new Exame(proc2,30,"estar em jejum de 12h","se hidratar","ressonancia magnetica");
+		c3 = new Consulta(proc3,30,"Gastroenterologista");
+		e1 = new Exame(proc1,28,"estar em jejum","se hidratar","hemograma");
+		e2 = new Exame(proc1,27,"estar em jejum","se hidratar","hemograma");
+		e3 = new Exame(proc2,30,"estar em jejum de 12h","se hidratar","ressonancia magnetica");
+		
+		
+		lote1 = new Lote(c1,30);
+		lote2 = new Lote(e1);
+		lote3 = new Lote(c2,30);
+		
+		a1 = new Agendamento(lote1,p1);		
+		a2 = new Agendamento(lote2,p2);
+		a3 = new Agendamento(lote3,p3);
+	
+		
 
 	
 	}
