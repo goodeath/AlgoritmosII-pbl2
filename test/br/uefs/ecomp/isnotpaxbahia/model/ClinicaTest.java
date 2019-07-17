@@ -49,10 +49,6 @@ public class ClinicaTest{
 		a1 = new Agendamento(lote1,p1);		
 		a2 = new Agendamento(lote2,p2);
 		a3 = new Agendamento(lote3,p3);
-	
-		
-
-	
 	}
 
     
@@ -60,11 +56,11 @@ public class ClinicaTest{
      * Teste de unidade que verifica a inserção de pacientes no cadastro da clínica.
      */
     @Test
-    public void testAddCliente() {
-        cli.getPacientes().add(p1);
-        cli.getPacientes().add(p2);
-        cli.getPacientes().add(p3);
-        assertEquals(sys.getPacientes().size(),3);
+    public void testAddPaciente() {
+    	clinica.getPacientes().add(p1);
+    	clinica.getPacientes().add(p2);
+        clinica.getPacientes().add(p3);
+        assertEquals(clinica.getPacientes().size(),3);
         
         assertEquals(p1, cli.getPacientes().get(0));
         assertEquals(p2, cli.getPacientes().get(1));
