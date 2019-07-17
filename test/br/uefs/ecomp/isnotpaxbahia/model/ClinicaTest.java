@@ -24,8 +24,6 @@ public class ClinicaTest{
 	public void setUp() throws Exception {
 	cli = new Clinica();
 	
-	
-	
 	p1 = new Paciente("Ronaldinho", "M", "Rua Barcelona", "8390102002", "01/02/1987");
 	p2 = new Paciente("Tod Guten", "M","Rua do Hittler","1194663520","12/06/1949");
 	p3 = new Paciente("Karla Perez" , "F", "Avenida do Alfabeto","7191234567", "03/03/1917");
@@ -33,10 +31,6 @@ public class ClinicaTest{
 	a1 = new Agendamento();		
 	a2 = new Agendamento();
 	a3 = new Agendamento();
-
-	proc1 = new Procedimento("hemograma","S10","Dr. Moab","Karla");
-	proc2 = new Procedimento("ressonancia magnetica","S1","Dr. Ricardo","Mario");
-	proc3 = new Procedimento("Consulta","S9","Dr. Jose","Josefa");
 	
 	lote1 = new Lote(proc1,30);
 	lote2 = new Lote(proc2,30);
