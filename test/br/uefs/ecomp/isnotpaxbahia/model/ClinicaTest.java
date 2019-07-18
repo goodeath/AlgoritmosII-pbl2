@@ -24,9 +24,10 @@ public class ClinicaTest{
 
 	private Paciente p1, p2, p3;
 	private Agendamento a1, a2, a3;
-	private Lote lote1, lote2, lote3;
+	private Lote l1, l2, l3, l4;
 	private Consulta c1, c2, c3;
 	private Exame e1, e2, e3;
+	private Clinica clinica;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -44,9 +45,10 @@ public class ClinicaTest{
 		e2 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes");
 		e3 = new Exame("Retossigmoidoscopia","T4", "Dra. Maria", "Gertrudes", "Uma boa noite de sono", "Jejum por 12 horas");
 		
-		lote1 = new Lote(c1,30);
-		lote2 = new Lote(e1,30);
-		lote3 = new Lote(c2,30);
+		l1= new Lote(c1,30);
+		l2= new Lote(e1,30);
+		l3= new Lote(c2,30);
+		l4= new Lote(c3,1);
 		
 		a1 = new Agendamento(lote1,p1);		
 		a2 = new Agendamento(lote2,p2);
@@ -65,9 +67,9 @@ public class ClinicaTest{
         clinica.getPacientes().add(p3);
         assertEquals(clinica.getPacientes().size(),3);
         
-        assertTrue(p1.equals(cli.getPacientes().get(0)));
-        assertTrue(p2.equals(cli.getPacientes().get(1)));
-        assertTrue(p3.equals(cli.getPacientes().get(2)));
+        assertTrue(p1.equals(clinica.getPacientes().get(0)));
+        assertTrue(p2.equals(clinica.getPacientes().get(1)));
+        assertTrue(p3.equals(clinica.getPacientes().get(2)));
 
     }
     
@@ -89,39 +91,26 @@ public class ClinicaTest{
     	assertNull(it.next());
     }
     
-    // User Stories 3
+    // User Stories 3 / 8
     
     public void testLancamentoLotes() {
+    	assertEquals("Exame/Consulta não disponível esta semana",clinica.agendar(p1,l1));
+    	clinica.getLotes().add(l1);
+    	clinica.getLotes().add(l2);
+    	clinica.getLotes().add(l3);
+    	assertFalse(clinica.agendar(p1,l1));
+    	
+    	assertEquals(29,clinica.getLotes().get(0).getQuantidade());
+    	
+    	assertFalse(clinica.agendar(p2,l4));
+    	assertEquals("Exame/Consulta esgotado para esta semana",clinica.agendar(p3,l4));
+    }
+    
+    // User Stories 5
+    public void testConfirmarAgendamento() {
     	
     }
-
-    /**
-     * Teste de unidade que verifica verifica se é possível buscar pacientes na lista de cadastro
-     */
-    @Test
-    public void testSearchPacientes(){
-        cli.getPacientes().add(p1);	
-        cli.getPacientes().add(p2);	
-        cli.getPacientes().add(p3);	
-
-	Paciente p_nome = cli.getPacientes().searchPacientebyName("Tod");        
-	assertEquals(p_nome,cli.getPacientes().get(1);
-	
-	Paciente p_sexo = cli.getPacientes().searchPacientesbySex("M");
-	assertEquals(p_sexo,cli.getPacientes.get(0));
-	assertEquals(p_sexo,cli.getPacientes.get(1));
-	
-	Paciente p_endereco = cli.getPacientes().searchPacientesbyAddress("Rua");
-	assertEquals(p_endereco,cli.getPacientes.get(0));
-	assertEquals(p_endereco,cli.getPacientes.get(1));
-
-	Paciente p_telefone = cli.getPacientes().searchPacientesbyPhone("71");
-	assertEquals(p_telefone,cli.getPacientes.get(2));	
-
-	Paciente p_idade = cli.getPacientes().searchPacientesbyIdade("29");
-	assertEquals(p_telefone,cli.getPacientes.get(2));
-
-    }
+ 
     
     /**
     * Teste que verifica se o método que busca pelo elemento de maior prioridade está funcionando corretamente    
