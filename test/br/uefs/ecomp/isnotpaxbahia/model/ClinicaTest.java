@@ -159,44 +159,47 @@ public class ClinicaTest{
         assertFalse(it.hasNext());
 
     }
+    
+    // Stories 6
+    
+    @Test
+    public void testHistoricoDeProcedimento() {
+    	clinica.getPacientes().add(p1);
+    	clinica.getPacientes().add(p2);
+        clinica.getPacientes().add(p3);
+        clinica.agendar(p1,l1);
+        clinica.agendar(p2,l1);
+        clinica.agendar(p3,l2);
+        clinica.confirmarAgendamento(p2,Agendamento.PRIORIDADE_IDOSO);
+        clinica.confirmarAgendamento(p1,Agendamento.PRIORIDADE_DEFICIENTE);        
+        clinica.confirmarAgendamento(p3,Agendamento.PRIORIDADE_MUITO_IDOSO);
+        
+        clinica.chamarPaciente(l1);
+        assertEquals(2,clinica.getConfirmados().size());
+        assertEquals(1,clinica.getAtendidos().size());
+        
+        clinica.chamarPaciente(l1);
+        assertEquals(1,clinica.getConfirmados().size());
+        assertEquals(2,clinica.getAtendidos().size());
+        
+        clinica.chamarPaciente(l2);
+        assertEquals(0,clinica.getConfirmados().size());
+        assertEquals(3,clinica.getAtendidos().size());
+        
+        Iterator it = clinica.getHistorico();
+        assertTrue(it.hasNext());
+        assertTrue(p1.equals(it.next().getPaciente()));
+        assertTrue(l1.equals(it.next().getLote()));
+        assertTrue(it.hasNext());
+        assertTrue(p2.equals(it.next().getPaciente()));
+        assertTrue(l1.equals(it.next().getLote()));
+        assertTrue(it.hasNext());
+        assertTrue(p3.equals(it.next().getPaciente()));
+        assertTrue(l2.equals(it.next().getLote()));
+    }
  
     
-    /**
-    * Teste que verifica se o método que busca pelo elemento de maior prioridade está funcionando corretamente    
-    */
-    @Test
-    public void testSearchPriority(){
-	cli.getPacientes().add(p1);
-	cli.getPacientes().add(p2);
-	assertEquals(p2,cli.getPacientes().getMaxPriority());
-	cli.getPacientes().add(p3);
-	assertEquals(p3,cli.getPacientes().getMaxPriority());
-   }
-
-    /**
-    * Verifica se os pacientes estao sendo inseridos na ordem correta na fila de presenca
-    */
-    @Test
-    public void testEnqueuePresenca{
-        
-	cli.getPacientes().add(p1);
-	cli.getPacientes().add(p2);
-	cli.getPacientes().add(p3);
-
-// Considerando que todos agendaram para mesmo dia, a ordem de insercao na fila de presenca eh: p3 - p2 - p1
-	
-	Paciente px = cli.getPacientes().getMaxPriority();
-	cli.getPresenca().enqueue(cli.getPacientes.getMaxPriority());
-	px = cli.getPacientes().getMaxPriority();
-	cli.getPresenca().enqueue(px);
-	px = cli.getPacientes().getMaxPriority();
-	assertEquals(p3,cli.getPresenca().first());
-	cli.getPresenca().dequeue();
-	assertEquals(p2,cli.getPresenca().first());
-	cli.getPresenca().dequeue();
-	assertEquals(p1,cli.getPresenca().first());
-    }
-    
+  
     /**
     * Teste unitário que verifica quais pacientes não se declararam presentes, ou seja ainda estão em lista de agendamento
     * getAgendamento retorna uma lista de pacientes que ja agendaram seu procedimento
