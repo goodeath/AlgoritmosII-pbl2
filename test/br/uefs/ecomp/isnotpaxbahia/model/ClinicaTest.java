@@ -38,7 +38,7 @@ public class ClinicaTest{
 		p3 = new Paciente("Karla Perez" , "F", "Avenida do Alfabeto","7191234567", "03/03/1917");
 		
 		c1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
-        c2 = new Consulta("Dentista", "S1", "Dr. Maria", "Gertrudes");
+        c2 = new Consulta("Dentista", "S1", "Dra. Maria", "Gertrudes");
         c3 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
 
 		e1 = new Exame("Glicorraquia", "T3", "Dra. Maria", "Gertrudes");
@@ -82,10 +82,12 @@ public class ClinicaTest{
     	Iterator it = clinica.searchPacientByNome("Tod Guten");
     	assertTrue(it.hasNext());
     	assertTrue(p1.equals(it.next()));
+    	assertFalse(it.hasNext());
     	
     	Iterator it = clinica.searchPacientByEndereco("Rua do Hittler");
     	assertTrue(it.hasNext());
     	assertTrue(p2.equals(it.next()));
+    	assertFalse(it.hasNext());
     	
     	Iterator it = clinica.searchPacientByNome("Karla");
     	assertFalse(it.hasNext());
@@ -188,14 +190,59 @@ public class ClinicaTest{
         
         Iterator it = clinica.getHistorico();
         assertTrue(it.hasNext());
-        assertTrue(p1.equals(it.next().getPaciente()));
-        assertTrue(l1.equals(it.next().getLote()));
+        
+        Agendamento a1 = it.next();
+        assertTrue(p1.equals(a1.getPaciente()));
+        assertTrue(l1.equals(a1.getLote()));
         assertTrue(it.hasNext());
-        assertTrue(p2.equals(it.next().getPaciente()));
-        assertTrue(l1.equals(it.next().getLote()));
+        
+        Agendamento a2 = it.next();
+        assertTrue(p2.equals(a2.getPaciente()));
+        assertTrue(l1.equals(a2.getLote()));
         assertTrue(it.hasNext());
-        assertTrue(p3.equals(it.next().getPaciente()));
-        assertTrue(l2.equals(it.next().getLote()));
+        
+        Agendamento a3 = it.next();
+        assertTrue(p3.equals(a3.getPaciente()));
+        assertTrue(l2.equals(a3.getLote()));
+    }
+    
+    // Stories 7
+    @Test
+    public void testPesquisarHistorico() {
+    	clinica.getPacientes().add(p1);
+    	clinica.getPacientes().add(p2);
+        clinica.getPacientes().add(p3);
+        clinica.agendar(p1,l1);
+        clinica.agendar(p2,l1);
+        clinica.agendar(p3,l2);
+        clinica.confirmarAgendamento(p2,Agendamento.PRIORIDADE_IDOSO);
+        clinica.confirmarAgendamento(p1,Agendamento.PRIORIDADE_DEFICIENTE);        
+        clinica.confirmarAgendamento(p3,Agendamento.PRIORIDADE_MUITO_IDOSO);
+        clinica.chamarPaciente(l1);
+        clinica.chamarPaciente(l1);
+        clinica.chamarPaciente(l2);
+        
+        Iterator it = clinica.getHistoricoByLote(l1);
+        assertTrue(it.hasNext());
+        
+        Agendamento a1 = it.next();
+        assertTrue(p1.equals(a1.getPaciente()));
+        assertTrue(l1.equals(a1.getLote()));
+        assertTrue(it.hasNext());
+        
+        Agendamento a2 = it.next();
+        assertTrue(p2.equals(a2.getPaciente()));
+        assertTrue(l1.equals(a2.getLote()));
+        assertFalse(it.hasNext());
+        
+        
+        Iterator it = clinica.getHistoricoByMedico("Dra. Maria");
+        assertTrue(it.hasNext());
+        Agendamento a3 = it.next();
+        assertTrue(p3.equals(a3.getPaciente()));
+        assertTrue(l2.equals(a3.getLote()));
+        
+        assertFalse(it.hasNext());
     }
  
     
