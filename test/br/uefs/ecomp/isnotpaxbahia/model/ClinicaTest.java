@@ -74,6 +74,7 @@ public class ClinicaTest{
     }
     
     // User stories 2
+    @Test
     public void testSearchPaciente() {
     	clinica.getPacientes().add(p1);
     	clinica.getPacientes().add(p2);
@@ -92,7 +93,7 @@ public class ClinicaTest{
     }
     
     // User Stories 3 / 8
-    
+    @Test
     public void testLancamentoLotes() {
     	assertEquals("Exame/Consulta não disponível esta semana",clinica.agendar(p1,l1));
     	clinica.getLotes().add(l1);
@@ -107,6 +108,7 @@ public class ClinicaTest{
     }
     
     // User Stories 4
+    @Test
     public void testConfirmarAgendamento() {
     	clinica.getPacientes().add(p1);
     	clinica.getPacientes().add(p2);
@@ -136,9 +138,26 @@ public class ClinicaTest{
         assertTrue(p2.equals(clinica.getConfirmados().get(1)));
     }
     
+    //Stories 4
+    
     @Test
     public void testPacientesAusentes() {
-    	
+    	clinica.getPacientes().add(p1);
+    	clinica.getPacientes().add(p2);
+        clinica.getPacientes().add(p3);
+        clinica.agendar(p1,l1);
+        clinica.agendar(p2,l1);
+        clinica.agendar(p3,l2);
+                
+        clinica.confirmarAgendamento(p2,Agendamento.PRIORIDADE_DEFICIENTE);
+        
+        Iterator it = clinica.encerrarSemana();
+        assertTrue(it.hasNext());
+        assertEquals(p1.equals(it.next()));
+        assertTrue(it.hasNext());
+        assertEquals(p3.equals(it.next()));
+        assertFalse(it.hasNext());
+
     }
  
     
