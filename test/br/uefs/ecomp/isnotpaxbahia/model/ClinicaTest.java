@@ -14,7 +14,9 @@ import br.uefs.ecomp.isnotpaxbahia.util.PriorityQueue;
 import br.uefs.ecomp.isnotpaxbahia.utils.IPrioridade;
 
 import java.util.Calendar;
-import java.util.Date; 
+import java.util.Date;
+
+import javax.swing.text.html.HTMLDocument.Iterator; 
 
 
 
@@ -54,6 +56,7 @@ public class ClinicaTest{
     
     /**
      * Teste de unidade que verifica a inserção de pacientes no cadastro da clínica.
+     * User Stories 1 . Cadastrar paciente
      */
     @Test
     public void testAddPaciente() {
@@ -62,10 +65,28 @@ public class ClinicaTest{
         clinica.getPacientes().add(p3);
         assertEquals(clinica.getPacientes().size(),3);
         
-        assertEquals(p1, cli.getPacientes().get(0));
-        assertEquals(p2, cli.getPacientes().get(1));
-        assertEquals(p3, cli.getPacientes().get(2));
+        assertTrue(p1.equals(cli.getPacientes().get(0)));
+        assertTrue(p2.equals(cli.getPacientes().get(1)));
+        assertTrue(p3.equals(cli.getPacientes().get(2)));
 
+    }
+    
+    // User stories 2
+    public void testSearchPaciente() {
+    	clinica.getPacientes().add(p1);
+    	clinica.getPacientes().add(p2);
+        clinica.getPacientes().add(p3);
+    	Iterator it = clinica.searchPacientByNome("Tod Guten");
+    	assertTrue(it.hasNext());
+    	assertTrue(p1.equals(it.next()));
+    	
+    	Iterator it = clinica.searchPacientByEndereco("Rua do Hittler");
+    	assertTrue(it.hasNext());
+    	assertTrue(p2.equals(it.next()));
+    	
+    	Iterator it = clinica.searchPacientByNome("Karla");
+    	assertFalse(it.hasNext());
+    	assertNull(it.next());		
     }
 
     /**
