@@ -200,40 +200,5 @@ public class ClinicaTest{
  
     
   
-    /**
-    * Teste unitário que verifica quais pacientes não se declararam presentes, ou seja ainda estão em lista de agendamento
-    * getAgendamento retorna uma lista de pacientes que ja agendaram seu procedimento
-    */
     
-    @Test
-    public void testFinishShift{
-     
-	cli.getAgendamento().add(p1);
-	cli.getAgendamento().add(p2);
-    	cli.getAgendamento().add(p3);
-	    
-    }
-		     
-		      /**
-     * Teste de unidade que verifica o iterador de pacientes.
-     */
-    @Test
-    public void testIterator() {
-        sys.getClientes().add(p1);
-        sys.getClientes().add(p2);
-        sys.getClientes().add(p3);
-        
-        Iterator it = sys.getPacientes().iterator();
-        
-        assertTrue(it.hasNext());
-        assertEquals(p1, it.next());
-        
-        assertTrue(it.hasNext());
-        assertEquals(p2, it.next());
-        
-        assertTrue(it.hasNext());
-        assertEquals(p3, it.next());
-        
-        assertFalse(it.hasNext());        
-    }   
 }
