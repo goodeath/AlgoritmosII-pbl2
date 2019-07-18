@@ -36,16 +36,16 @@ public class ClinicaTest{
 		p2 = new Paciente("Tod Guten", "M","Rua do Hittler","1194663520","12/06/1949");
 		p3 = new Paciente("Karla Perez" , "F", "Avenida do Alfabeto","7191234567", "03/03/1917");
 		
-		c1 = new Consulta(proc1,30,"Pediatra");
-        	c2 = new Consulta(proc1,29,"Pediatra");
-		c3 = new Consulta(proc3,30,"Gastroenterologista");
-		
-		e1 = new Exame(proc1,28,"estar em jejum","se hidratar","hemograma");
-		e2 = new Exame(proc1,27,"estar em jejum","se hidratar","hemograma");
-		e3 = new Exame(proc2,30,"estar em jejum de 12h","se hidratar","ressonancia magnetica");
+		c1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
+        c2 = new Consulta("Dentista", "S1", "Dr. Maria", "Gertrudes");
+        c3 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
+
+		e1 = new Exame("Glicorraquia", "T3", "Dra. Maria", "Gertrudes");
+		e2 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes");
+		e3 = new Exame("Retossigmoidoscopia","T4", "Dra. Maria", "Gertrudes", "Uma boa noite de sono", "Jejum por 12 horas");
 		
 		lote1 = new Lote(c1,30);
-		lote2 = new Lote(e1);
+		lote2 = new Lote(e1,30);
 		lote3 = new Lote(c2,30);
 		
 		a1 = new Agendamento(lote1,p1);		
@@ -86,7 +86,13 @@ public class ClinicaTest{
     	
     	Iterator it = clinica.searchPacientByNome("Karla");
     	assertFalse(it.hasNext());
-    	assertNull(it.next());		
+    	assertNull(it.next());
+    }
+    
+    // User Stories 3
+    
+    public void testLancamentoLotes() {
+    	
     }
 
     /**
