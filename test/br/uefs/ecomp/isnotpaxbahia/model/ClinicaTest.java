@@ -106,8 +106,38 @@ public class ClinicaTest{
     	assertEquals("Exame/Consulta esgotado para esta semana",clinica.agendar(p3,l4));
     }
     
-    // User Stories 5
+    // User Stories 4
     public void testConfirmarAgendamento() {
+    	clinica.getPacientes().add(p1);
+    	clinica.getPacientes().add(p2);
+        clinica.getPacientes().add(p3);
+        clinica.agendar(p1,l1);
+        clinica.agendar(p2,l1);
+        clinica.agendar(p3,l2);
+        
+        assertEquals(3,clinica.getAgendados().size());
+        
+        clinica.confirmarAgendamento(p1);
+        assertEquals(2,clinica.getAgendados().size());
+        assertEquals(1,clinica.getConfirmados().size());
+        assertEquals(1,clinica.getConfirmados().get(0).getPrioridade());
+        assertTrue(p1.equals(clinica.getConfirmados().get(0)));
+        
+        clinica.confirmarAgendamento(p3,Agendamento.PRIORIDADE_DEFICIENTE);
+        assertEquals(1,clinica.getAgendados().size());
+        assertEquals(2,clinica.getConfirmados().size());
+        assertEquals(4,clinica.getConfirmados().get(0).getPrioridade());
+        assertTrue(p3.equals(clinica.getConfirmados().get(0)));
+        
+        clinica.confirmarAgendamento(p2,Agendamento.PRIORIDADE_GRAVIDA);
+        assertEquals(0,clinica.getAgendados().size());
+        assertEquals(3,clinica.getConfirmados().size());
+        assertEquals(2,clinica.getConfirmados().get(0).getPrioridade());
+        assertTrue(p2.equals(clinica.getConfirmados().get(1)));
+    }
+    
+    @Test
+    public void testPacientesAusentes() {
     	
     }
  
