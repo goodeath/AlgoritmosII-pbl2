@@ -26,7 +26,7 @@ class PacienteTest {
 	public void testInitialization() {
 		assertEquals("Tod Guten",this.paciente1.getNome());
 		assertEquals("7599534432",this.paciente1.getTelefone());
-		assertEquals("Rua do Hittler, 666",this.paciente1.getEndereco);
+		assertEquals("Rua do Hittler",this.paciente1.getEndereco();
 		assertEquals("M",this.paciente1.getGender());
 		assertEquals(Calendar.YEAR-1990, this.paciente1.getIdade());
 	}
