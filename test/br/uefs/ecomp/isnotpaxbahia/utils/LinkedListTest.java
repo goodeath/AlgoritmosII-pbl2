@@ -6,17 +6,17 @@ import org.junit.jupiter.api.Test;
 
 import br.uefs.ecomp.isnotpaxbahia.utils.LinkedList;
 
-class LinkedListTest {
+public class LinkedListTest {
 	
-	private LinkedList<int> list;
+	private LinkedList list;
 	
 	/**
      * Este método é executado antes de cada teste de unidade (testes a seguir), 
      * e serve para inicializar objetos que são utilizados nos testes.
      */
     @Before
-    public void setUp() throws Exception {
-    	this.list = new MyLinkedList<int>();
+    public void setUp() {
+    	this.list = new LinkedList();
     }
 
 	@Test
