@@ -90,8 +90,8 @@ public class ClinicaTest{
     	assertFalse(it.hasNext());
     	
     	Iterator it = clinica.searchPacientByNome("Karla");
-    	assertFalse(it.hasNext());
-    	assertNull(it.next());
+    	assertTrue(it.hasNext());
+    	assertTrue(p3.equals(it.next()));
     }
     
     // User Stories 3 / 8
