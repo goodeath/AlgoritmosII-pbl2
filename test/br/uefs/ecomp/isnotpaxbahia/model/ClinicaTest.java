@@ -33,13 +33,13 @@ public class ClinicaTest{
 	public void setUp() throws Exception {
 		clinica = new Clinica();
 		
-		p1 = new Paciente("Ronaldinho", 'M', "Rua Barcelona", "8390102002", "01/02/1987");
-		p2 = new Paciente("Tod Guten", 'M',"Rua do Hittler","1194663520","12/06/1949");
-		p3 = new Paciente("Karla Perez" , 'F', "Avenida do Alfabeto","7191234567", "03/03/1917");
+		p1 = new Paciente("Ronaldinho", 'M', "Rua Barcelona", "8390102002", "01/02/1987". "75670034570");
+		p2 = new Paciente("Tod Guten", 'M',"Rua do Hittler","1194663520","12/06/1949", "41023802562");
+		p3 = new Paciente("Karla Perez" , 'F', "Avenida do Alfabeto","7191234567", "03/03/1917", "41277228515");
 		
 		c1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
-        c2 = new Consulta("Dentista", "S1", "Dra. Maria", "Gertrudes");
-        c3 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
+        	c2 = new Consulta("Dentista", "S1", "Dra. Maria", "Gertrudes");
+        	c3 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
 
 		e1 = new Exame("Glicorraquia", "T3", "Dra. Maria", "Gertrudes");
 		e2 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes");
