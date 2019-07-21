@@ -2,10 +2,10 @@ package br.uefs.ecomp.isnotpaxbahia.model;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 
-class ConsultaTest {
+public class ConsultaTest {
 	
 	private Consulta consulta1;
 	private Consulta consulta2;
@@ -15,7 +15,7 @@ class ConsultaTest {
      * e serve para inicializar objetos que sÃ£o utilizados nos testes.
      */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         consulta1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
         consulta2 = new Consulta("Dentista", "S1", "Dr. Maria", "Gertrudes");
         consulta3 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
@@ -32,7 +32,8 @@ class ConsultaTest {
 	@Test
 	public void testEquality() {
 		assertFalse(consulta1.equals(consulta2));
-		assertTrue(consulta1.equals(consulta3));
+		assertFalse(consulta1.equals(consulta3));
+		assertTrue(consulta.equals(consulta1));
 	}
 
 }

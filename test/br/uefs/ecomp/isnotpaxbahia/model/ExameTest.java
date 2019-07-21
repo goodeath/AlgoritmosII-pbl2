@@ -2,14 +2,14 @@ package br.uefs.ecomp.isnotpaxbahia.model;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class ExameTest {
 
 	private Exame exame1, exame2, exame3, exame4;
 
 	@Before
-	public void setUp throws Exception {		
+	public void setUp {		
 		exame1 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes");
 		exame2 = new Exame("Glicorraquia", "T3", "Dra. Maria", "Gertrudes");
 		exame3 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes");

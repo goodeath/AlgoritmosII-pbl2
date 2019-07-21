@@ -2,7 +2,7 @@ package br.uefs.ecomp.isnotpaxbahia.model;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import br.uefs.ecomp.isnotpaxbahia.model.Paciente;
 import br.uefs.ecomp.isnotpaxbahia.model.Agendamento;
@@ -33,9 +33,9 @@ public class ClinicaTest{
 	public void setUp() throws Exception {
 		clinica = new Clinica();
 		
-		p1 = new Paciente("Ronaldinho", "M", "Rua Barcelona", "8390102002", "01/02/1987");
-		p2 = new Paciente("Tod Guten", "M","Rua do Hittler","1194663520","12/06/1949");
-		p3 = new Paciente("Karla Perez" , "F", "Avenida do Alfabeto","7191234567", "03/03/1917");
+		p1 = new Paciente("Ronaldinho", 'M', "Rua Barcelona", "8390102002", "01/02/1987");
+		p2 = new Paciente("Tod Guten", 'M',"Rua do Hittler","1194663520","12/06/1949");
+		p3 = new Paciente("Karla Perez" , 'F', "Avenida do Alfabeto","7191234567", "03/03/1917");
 		
 		c1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
         c2 = new Consulta("Dentista", "S1", "Dra. Maria", "Gertrudes");

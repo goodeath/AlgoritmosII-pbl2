@@ -2,7 +2,7 @@ package br.uefs.ecomp.isnotpaxbahia.model;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import br.uefs.ecomp.isnotpaxbahia.model.Exame;
 import br.uefs.ecomp.isnotpaxbahia.model.Consulta;
@@ -19,7 +19,7 @@ class LoteTest {
      * e serve para inicializar objetos que são utilizados nos testes.
      */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
     	proc1 = new Exame("Retossigmoidoscopia","T4", "Dra. Maria", "Gertrudes", "Uma boa noite de sono", "Jejum por 12 horas");
     	proc2 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
         lote1 = new Lote(proc1, 50);
@@ -57,9 +57,16 @@ class LoteTest {
 	}
 	
 	@Test
-	public void testEquality(){
+	public void testEquals(){
 		assertFalse(lote1.equals(lote2));
-		assertTrue(lote1.equals(lote3));
+		assertFalse(lote1.equals(lote3));
+		assertTrue(lote1.equals(lote1));
+	}
+	
+	@Test
+	public void testEquality(){
+		assertFalse(lote1.isSameType(lote2));
+		assertTrue(lote1.isSameType(lote3));
 	}
 
 }
