@@ -21,16 +21,16 @@ public class ExameTest {
 		assertEquals("Jejum por 12 horas",exame4.getRestricao());
 		assertEquals("Uma boa noite de sono",exame4.getRecomendacao());
 		assertEquals("Retossigmoidoscopia",exame4.getNome());
-		assertTrue("T4",exame4.getSala());
-		assertTrue("Dra. Maria", exame4.getMedico());
-		assertTrue("Gertrudes", exame4.getAtendente());
-		assertTrue("627512", exame4.getId());
+		assertEquals("T4",exame4.getSala());
+		assertEquals("Dra. Maria", exame4.getMedico());
+		assertEquals("Gertrudes", exame4.getAtendente());
+		assertEquals("627512", exame4.getId());
 		
 		assertEquals("Biópsia",exame3.getNome());
-		assertTrue("S1",exame3.getSala());		
-		assertTrue("Dr. Ricardo", exame3.getMedico());
-		assertTrue("Gertrudes", exame3.getAtendente());
-		assertTrue("781522", exame3.getId());
+		assertEquals("S1",exame3.getSala());		
+		assertEquals("Dr. Ricardo", exame3.getMedico());
+		assertEquals("Gertrudes", exame3.getAtendente());
+		assertEquals("781522", exame3.getId());
 		
 		
 	}
