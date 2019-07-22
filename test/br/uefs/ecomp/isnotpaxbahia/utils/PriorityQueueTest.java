@@ -2,7 +2,7 @@ package br.uefs.ecomp.isnotpaxbahia.utils;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import br.uefs.ecomp.isnotpaxbahia.utils.PriorityQueue;
 import br.uefs.ecomp.isnotpaxbahia.Model.Paciente;
@@ -23,7 +23,7 @@ public class QueueTest {
 
 	@Before
 	public void setUp(){
-		queue = new MyPriorityQueue<IPrioridade>();
+		queue = new PriorityQueue<IPrioridade>();
 		
 		Lote l1 = new Lote(50,"hemograma");
 		Paciente p1 = new Paciente("marcio","M","Rua alvorada","7699990000","01/10/1990");
