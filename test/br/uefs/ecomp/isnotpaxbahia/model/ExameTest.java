@@ -10,10 +10,10 @@ public class ExameTest {
 
 	@Before
 	public void setUp {		
-		exame1 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes");
-		exame2 = new Exame("Glicorraquia", "T3", "Dra. Maria", "Gertrudes");
-		exame3 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes");
-		exame4 = new Exame("Retossigmoidoscopia","T4", "Dra. Maria", "Gertrudes", "Uma boa noite de sono", "Jejum por 12 horas");
+		exame1 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes", "126842");
+		exame2 = new Exame("Glicorraquia", "T3", "Dra. Maria", "Gertrudes", "789364");
+		exame3 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes", "781522");
+		exame4 = new Exame("Retossigmoidoscopia","T4", "Dra. Maria", "Gertrudes", "627512", "Uma boa noite de sono", "Jejum por 12 horas");
 	}
 
 	@Test
@@ -24,11 +24,13 @@ public class ExameTest {
 		assertTrue("T4",exame4.getSala());
 		assertTrue("Dra. Maria", exame4.getMedico());
 		assertTrue("Gertrudes", exame4.getAtendente());
+		assertTrue("627512", exame4.getId());
 		
 		assertEquals("Biópsia",exame3.getNome());
 		assertTrue("S1",exame3.getSala());		
 		assertTrue("Dr. Ricardo", exame3.getMedico());
 		assertTrue("Gertrudes", exame3.getAtendente());
+		assertTrue("781522", exame3.getId());
 		
 		
 	}
