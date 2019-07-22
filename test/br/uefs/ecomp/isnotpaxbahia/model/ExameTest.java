@@ -9,7 +9,7 @@ public class ExameTest {
 	private Exame exame1, exame2, exame3, exame4;
 
 	@Before
-	public void setUp {		
+	public void setUp() {		
 		exame1 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes", "126842");
 		exame2 = new Exame("Glicorraquia", "T3", "Dra. Maria", "Gertrudes", "789364");
 		exame3 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes", "781522");
