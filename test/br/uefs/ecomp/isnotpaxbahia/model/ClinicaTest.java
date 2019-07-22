@@ -30,7 +30,7 @@ public class ClinicaTest{
 	private Clinica clinica;
 	
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		clinica = new Clinica();
 		
 		p1 = new Paciente("Ronaldinho", 'M', "Rua Barcelona", "8390102002", "01/02/1987". "75670034570");
