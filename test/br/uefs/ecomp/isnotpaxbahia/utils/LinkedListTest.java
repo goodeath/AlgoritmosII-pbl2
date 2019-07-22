@@ -2,7 +2,7 @@ package br.uefs.ecomp.isnotpaxbahia.utils;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test
 
 import br.uefs.ecomp.isnotpaxbahia.utils.LinkedList;
 
