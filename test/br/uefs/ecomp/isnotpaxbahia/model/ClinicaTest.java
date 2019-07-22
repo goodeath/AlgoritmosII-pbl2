@@ -37,13 +37,13 @@ public class ClinicaTest{
 		p2 = new Paciente("Tod Guten", 'M',"Rua do Hittler","1194663520","12/06/1949", "41023802562");
 		p3 = new Paciente("Karla Perez" , 'F', "Avenida do Alfabeto","7191234567", "03/03/1917", "41277228515");
 		
-		c1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
-        	c2 = new Consulta("Dentista", "S1", "Dra. Maria", "Gertrudes");
-        	c3 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
+		c1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes", "156945");
+        	c2 = new Consulta("Dentista", "S1", "Dra. Maria", "Gertrudes", "154604");
+        	c3 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes", "123456");
 
-		e1 = new Exame("Glicorraquia", "T3", "Dra. Maria", "Gertrudes");
-		e2 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes");
-		e3 = new Exame("Retossigmoidoscopia","T4", "Dra. Maria", "Gertrudes", "Uma boa noite de sono", "Jejum por 12 horas");
+		e1 = new Exame("Glicorraquia", "T3", "Dra. Maria", "Gertrudes", "456123");
+		e2 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes", "159951");
+		e3 = new Exame("Retossigmoidoscopia","T4", "Dra. Maria", "Gertrudes","478235", "Uma boa noite de sono", "Jejum por 12 horas");
 		
 		l1= new Lote(c1,30);
 		l2= new Lote(e1,30);
