@@ -12,7 +12,7 @@ public class ExameTest {
 	public void setUp() {		
 		exame1 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes", "126842");
 		exame2 = new Exame("Glicorraquia", "T3", "Dra. Maria", "Gertrudes", "789364");
-		exame3 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes", "781522");
+		exame3 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes", "126842");
 		exame4 = new Exame("Retossigmoidoscopia","T4", "Dra. Maria", "Gertrudes", "627512", "Uma boa noite de sono", "Jejum por 12 horas");
 	}
 
@@ -30,7 +30,7 @@ public class ExameTest {
 		assertEquals("S1",exame3.getSala());		
 		assertEquals("Dr. Ricardo", exame3.getMedico());
 		assertEquals("Gertrudes", exame3.getAtendente());
-		assertEquals("781522", exame3.getId());
+		assertEquals("126842", exame3.getId());
 		
 		
 	}
@@ -38,7 +38,7 @@ public class ExameTest {
 
 	@Test
 	public void testEquality(){
-		assertFalse(exame1.equals(exame2));
-		assertTrue(exame1.equals(exame3));
+		assertFalse(exame1.getId().equals(exame2.getId()));
+		assertTrue(exame1.getId().equals(exame3.getId()));
 	}
 }
