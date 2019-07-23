@@ -17,8 +17,8 @@ public class ConsultaTest {
     @Before
     public void setUp() {
         consulta1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes", "684512", "Pediatria");
-        consulta2 = new Consulta("Dentista", "S1", "Dr. Maria", "Gertrudes", "597842". "Neurologia");
-        consulta3 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes", "987562", "Urologia");
+        consulta2 = new Consulta("Dentista", "S1", "Dr. Maria", "Gertrudes", "597842", "Neurologia");
+        consulta3 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes", "684512", "Pediatria");
     }
 
 	@Test
@@ -33,9 +33,9 @@ public class ConsultaTest {
 
 	@Test
 	public void testEquality() {
-		assertFalse(consulta1.equals(consulta2));
-		assertFalse(consulta1.equals(consulta3));
-		assertTrue(consulta.equals(consulta1));
+		assertFalse(consulta1.getId().equals(consulta2.getId()));
+		assertFalse(consulta2.getId().equals(consulta3.getId()));
+		assertTrue(consulta3.getId().equals(consulta1.getId()));
 	}
 
 }
