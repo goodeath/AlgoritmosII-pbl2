@@ -1,6 +1,8 @@
 package br.uefs.ecomp.isnotpaxbahia.model;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,6 +13,8 @@ import br.uefs.ecomp.isnotpaxbahia.model.Lote;
 public class LoteTest {
 	
 	private Lote lote1;
+	private Lote lote2;
+	private Lote lote3;
 	private Procedimento proc1;
 	private Procedimento proc2;
 	
@@ -20,8 +24,8 @@ public class LoteTest {
      */
     @Before
     public void setUp() {
-    	proc1 = new Exame("Retossigmoidoscopia","T4", "Dra. Maria", "Gertrudes", "Uma boa noite de sono", "Jejum por 12 horas");
-    	proc2 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes");
+    	proc1 = new Exame("Retossigmoidoscopia","T4", "Dra. Maria", "Gertrudes", "126842", "Uma boa noite de sono", "Jejum por 12 horas");
+    	proc2 = new Consulta("Clinico Geral", "S1", "684512", "Dr. Ricardo", "Gertrudes", "Pediatria");
         lote1 = new Lote(proc1, 50);
         lote2 = new Lote(proc2, 50);
         lote3 = new Lote(proc1, 30);
@@ -30,12 +34,12 @@ public class LoteTest {
 	@Test
 	public void testInitialization() {
 		assertEquals(50,lote1.getQuantidade());
-		assertEquals(proc1.equals(lote1.getProcedimento()));
+		assertTrue(proc1.equals(lote1.getProcedimento()));
 		assertEquals(50,lote2.getQuantidade());
-		assertEquals(proc2.equals(lote2.getProcedimento()));
+		assertTrue(proc2.equals(lote2.getProcedimento()));
 	}
 	
-	@test
+	@Test
 	public void testSetQuantity() {
 		assertEquals(50,lote1.getQuantidade());
 		lote1.setQuantidade(10);
@@ -65,8 +69,8 @@ public class LoteTest {
 	
 	@Test
 	public void testEquality(){
-		assertFalse(lote1.isSameType(lote2));
-		assertTrue(lote1.isSameType(lote3));
+		assertFalse(lote1.getProcedimento().equals(lote2.getProcedimento()));
+		assertTrue(lote1.getProcedimento().equals(lote3.getProcedimento()));
 	}
 
 }
