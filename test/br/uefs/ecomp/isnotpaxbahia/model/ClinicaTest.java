@@ -9,8 +9,8 @@ import br.uefs.ecomp.isnotpaxbahia.model.Agendamento;
 import br.uefs.ecomp.isnotpaxbahia.model.Lote;
 import br.uefs.ecomp.isnotpaxbahia.model.Exame;
 import br.uefs.ecomp.isnotpaxbahia.model.Consulta;
-import br.uefs.ecomp.isnotpaxbahia.util.LinkedList;
-import br.uefs.ecomp.isnotpaxbahia.util.PriorityQueue;
+import br.uefs.ecomp.isnotpaxbahia.utils.LinkedList;
+import br.uefs.ecomp.isnotpaxbahia.utils.PriorityQueue;
 import br.uefs.ecomp.isnotpaxbahia.utils.IPrioridade;
 
 import java.util.Calendar;
