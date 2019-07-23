@@ -5,9 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.uefs.ecomp.isnotpaxbahia.utils.PriorityQueue;
-import br.uefs.ecomp.isnotpaxbahia.Model.Paciente;
-import br.uefs.ecomp.isnotpaxbahia.Model.Agendamento;
-import br.uefs.ecomp.isnotpaxbahia.Model.Lote;
+import br.uefs.ecomp.isnotpaxbahia.model.Paciente;
+import br.uefs.ecomp.isnotpaxbahia.model.Agendamento;
+import br.uefs.ecomp.isnotpaxbahia.model.Lote;
 import br.uefs.ecomp.isnotpaxbahia.utils.IPrioridade;
 
 /**
