@@ -7,6 +7,8 @@ import org.junit.Test;
 import br.uefs.ecomp.isnotpaxbahia.utils.PriorityQueue;
 import br.uefs.ecomp.isnotpaxbahia.model.Paciente;
 import br.uefs.ecomp.isnotpaxbahia.model.Agendamento;
+import br.uefs.ecomp.isnotpaxbahia.model.Consulta;
+import br.uefs.ecomp.isnotpaxbahia.model.Exame;
 import br.uefs.ecomp.isnotpaxbahia.model.Lote;
 import br.uefs.ecomp.isnotpaxbahia.utils.IPrioridade;
 
@@ -14,36 +16,43 @@ import br.uefs.ecomp.isnotpaxbahia.utils.IPrioridade;
 * a informação de cada nó desta linked list é considerada como a prioridade no problema
 */
 
-public class QueueTest {
+public class PriorityQueueTest {
 
-	private PriorityQueue <IPrioridade> queue;	
+	private PriorityQueue queue;	
 	private Lote l1, l2, l3, l4, l5;
 	private Agendamento a1, a2, a3, a4, a5;
 	private Paciente p1, p2, p3, p4, p5;
+	private Exame e1, e2, e3;
+	private Consulta c1, c2;
 
 	@Before
 	public void setUp(){
-		queue = new PriorityQueue<IPrioridade>();
+		queue = new PriorityQueue();
 		
-		Lote l1 = new Lote(50,"hemograma");
-		Paciente p1 = new Paciente("marcio","M","Rua alvorada","7699990000","01/10/1990", "54597533508");
-		Agendamento a1 = new Agendamento(Lote l1,Paciente p1);
+		e1 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes", "126842");	
+		l1 = new Lote(e1,10);
+		p1 = new Paciente("marcio",'M',"Rua alvorada","7699990000","01/10/1990", "54597533508");
+		a1 = new Agendamento(l1, p1);
 		
-		Lote l2 = new Lote(50,"consulta geral");
-		Paciente p2 = new Paciente("jose","M","Rua nova alvorada","7699990001","01/10/1910", "85803939579");
-		Agendamento a2 = new Agendamento(Lote l2,Paciente p2);
+		e2 = new Exame("Glicorraquia", "T3", "Dra. Maria", "Gertrudes", "789364");
+		l2 = new Lote(e2,20);
+		p2 = new Paciente("jose",'M',"Rua nova alvorada","7699990001","01/10/1910", "85803939579");
+		a2 = new Agendamento(l2, p2);
 		
-		Lote l3 = new Lote(50,"raiox");
-		Paciente p3 = new Paciente("florentina","F","Avenida alvorada","7699990002","01/10/1987", "66629301560");
-		Agendamento a3 = new Agendamento(Lote l3,Paciente p3);
+		e3 = new Exame("Biópsia", "S1", "Dr. Ricardo", "Gertrudes", "126842");
+		l3 = new Lote(e3, 30);
+		p3 = new Paciente("florentina",'F',"Avenida alvorada","7699990002","01/10/1987", "66629301560");
+		a3 = new Agendamento(l3, p3);
 		
-		Lote l4 = new Lote(50,"ressonancia magnetica");
-		Paciente p4 = new Paciente("josefina","F","Avenida afonso pena","7699990003","04/04/1977", "62577395515");
-		Agendamento a4 = new Agendamento(Lote l4,Paciente p4);
+		c1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes", "684512", "Pediatria");
+		l4 = new Lote(c1,40);
+		p4 = new Paciente("josefina",'F',"Avenida afonso pena","7699990003","04/04/1977", "62577395515");
+		a4 = new Agendamento(l4, p4);
 		
-		Lote l5 = new Lote(50,"ultrassom");
-		Paciente p5 = new Paciente("josefa","F","Favela do alemao","7699990004","04/04/1958", "71702517527");
-		Agendamento a5= new Agendamento(Lote l5,Paciente p5);
+		c2 = new Consulta("Dentista", "S1", "Dr. Maria", "Gertrudes", "597842", "Neurologia");
+		l5 = new Lote(c2, 50);
+		p5 = new Paciente("josefa",'F',"Favela do alemao","7699990004","04/04/1958", "71702517527");
+		a5= new Agendamento(l5, p5);
 		
 		
 	}
@@ -78,7 +87,7 @@ public class QueueTest {
 		assertEquals(queue.get(0).getPrioridade(),5);
 		assertEquals(queue.size(),5);
 		
-		queue = new PriorityQueue<IPrioridade>();
+		queue = new PriorityQueue();
 		
 		queue.enqueue(a5,Agendamento.PRIORIDADE_MUITO_IDOSO);
 		queue.enqueue(a4,Agendamento.PRIORIDADE_MUITO_IDOSO);
