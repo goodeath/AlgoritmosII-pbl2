@@ -44,12 +44,12 @@ public class PriorityQueueTest {
 		p3 = new Paciente("florentina",'F',"Avenida alvorada","7699990002","01/10/1987", "66629301560");
 		a3 = new Agendamento(l3, p3);
 		
-		c1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes", "684512", "Pediatria");
+		c1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes", "684512");
 		l4 = new Lote(c1,40);
 		p4 = new Paciente("josefina",'F',"Avenida afonso pena","7699990003","04/04/1977", "62577395515");
 		a4 = new Agendamento(l4, p4);
 		
-		c2 = new Consulta("Dentista", "S1", "Dr. Maria", "Gertrudes", "597842", "Neurologia");
+		c2 = new Consulta("Dentista", "S1", "Dr. Maria", "Gertrudes", "597842");
 		l5 = new Lote(c2, 50);
 		p5 = new Paciente("josefa",'F',"Favela do alemao","7699990004","04/04/1958", "71702517527");
 		a5= new Agendamento(l5, p5);
