@@ -16,19 +16,18 @@ public class ConsultaTest {
      */
     @Before
     public void setUp() {
-        consulta1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes", "684512", "Pediatria");
-        consulta2 = new Consulta("Dentista", "S1", "Dr. Maria", "Gertrudes", "597842", "Neurologia");
-        consulta3 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes", "684512", "Pediatria");
+        consulta1 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes", "684512");
+        consulta2 = new Consulta("Dentista", "S1", "Dr. Maria", "Gertrudes", "597842");
+        consulta3 = new Consulta("Clinico Geral", "S1", "Dr. Ricardo", "Gertrudes", "684512");
     }
 
 	@Test
 	public void testInitialization() {
-		assertEquals(this.consulta1.getNome(),"Clinico Geral");
+		assertEquals(this.consulta1.getEspecialidade(),"Clinico Geral");
 		assertEquals(this.consulta1.getMedico(),"Dr. Ricardo");
 		assertEquals(this.consulta1.getAtendente(),"Gertrudes");
 		assertEquals(this.consulta1.getSala(),"S1");
 		assertEquals(this.consulta1.getId(),"684512");
-		assertEquals(this.consulta1.getEspecialidade(),"Pediatria");
 	}
 
 	@Test
