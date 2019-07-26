@@ -25,7 +25,7 @@ public class LoteTest {
     @Before
     public void setUp() {
     	proc1 = new Exame("Retossigmoidoscopia","T4", "Dra. Maria", "Gertrudes", "126842", "Uma boa noite de sono", "Jejum por 12 horas");
-    	proc2 = new Consulta("Clinico Geral", "S1", "684512", "Dr. Ricardo", "Gertrudes", "Pediatria");
+    	proc2 = new Consulta("Clinico Geral", "S1", "684512", "Dr. Ricardo", "Gertrudes");
         lote1 = new Lote(proc1, 50);
         lote2 = new Lote(proc2, 50);
         lote3 = new Lote(proc1, 30);
