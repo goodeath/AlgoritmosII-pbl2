@@ -20,13 +20,13 @@ public class ExameTest {
 	public void testInitialization(){
 		assertEquals("Jejum por 12 horas",exame4.getRestricao());
 		assertEquals("Uma boa noite de sono",exame4.getRecomendacao());
-		assertEquals("Retossigmoidoscopia",exame4.getNome());
+		assertEquals("Retossigmoidoscopia",exame4.getTipo());
 		assertEquals("T4",exame4.getSala());
 		assertEquals("Dra. Maria", exame4.getMedico());
 		assertEquals("Gertrudes", exame4.getAtendente());
 		assertEquals("627512", exame4.getId());
 		
-		assertEquals("Biópsia",exame3.getNome());
+		assertEquals("Biópsia",exame3.getTipo());
 		assertEquals("S1",exame3.getSala());		
 		assertEquals("Dr. Ricardo", exame3.getMedico());
 		assertEquals("Gertrudes", exame3.getAtendente());
